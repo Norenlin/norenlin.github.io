@@ -338,8 +338,8 @@ h1{
     display:flex;
     justify-content:flex-start;
     background-color: #ede9db;
-    width: 100%;
-    min-height:100vh;
+    min-width: 100vh;
+    min-height: 100vh;
 }
 
 .place h2{
@@ -513,6 +513,7 @@ footer{
     align-items: center;
     justify-content: center;
     font-size: 15px;
+    min-width: 100vh;
 }
 
 .dropdown{
@@ -603,6 +604,23 @@ footer{
         position: absolute;
         top:-40px;
         left:0;
+    }
+
+    .place h2{
+        font-size: 15px;
+    }
+
+    .contact{
+        flex-direction: column;
+        margin:10px;
+    }
+
+    .contact h3{
+        font-size: 15px;
+    }
+
+    .contact p{
+        font-size: 10px;
     }
 
     .about h3{
