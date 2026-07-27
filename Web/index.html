@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang = "zh-TW">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content ="width =device-width, initial-scale = 1.0">
+        <title>咖啡</title>
+        <link rel = "stylesheet" href = "style.css">
+        <script src = "script.js" defer> </script>
+    </head>
+    <body>
+        <!--header網站相關資訊，em 斜體，strong 粗體-->
+        <header>
+            <h1>咖啡</h1>
+            <!--響應式-->
+            <div class = "dropdown">
+                <button onclick = "myFunction()" class = "menu">&#9776;</button>
+                <div id = "myDropdown" class = "dropdown-content">
+                    <li><a href = "index.html">首頁</a></li>
+                    <li><a href = "place.html">門市資訊</a></li>
+                    <li><a href = "index.html#news">最新消息</a></li>
+                    <li><a href = "products.html">商品介紹</a></li>
+                    <li><a href = "about.html">關於我們</a></li>
+                    <li><a href = "#">會員登入</a></li>
+                </div>
+            </div>
+
+            <!--桌面板-->
+            <!--nav網站導覽列或主選單-->
+            <nav class = "navbar">
+                <ul>
+                    <li><a href = "index.html">首頁</a></li>
+                    <li><a href = "place.html">門市資訊</a></li>
+                    <li><a href = "index.html#news">最新消息</a></li>
+                    <li><a href = "products.html">商品介紹</a></li>
+                    <li><a href = "about.html">關於我們</a></li>
+                    <li><a href = "#">會員登入</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--網頁主要內容-->
+        <main>
+            <!--不同主題分類-->
+            <section class = "slogan">
+                <h2><em>"一杯咖啡 收藏每個平凡日常"</em></h2>
+                <p><em><strong>新店開幕9折起，咖啡茶飲杯杯現泡</strong></em></p>
+                <p><a href= "index.html#news">瞭解更多</a></p>
+            </section>
+
+            <section class = "news" id = "news">
+                <blockquote><em>最新消息News</em></blockquote>
+            </section>
+
+            <section class = "shop">
+                <div class="slideshow-container">
+                    <div class = "mySlides fade">
+                        <img src="images/place.png" alt="咖啡宜蘭店">
+                        <div class = "info">
+                            <h3><em>8月1日宜蘭旗艦店隆重開張!</em></h3>
+                            <p><em><strong>找一個舒適角落，品味咖啡帶來的慢生活。</strong></em></p>
+                        </div>
+                    </div>
+
+                    <div class = "mySlides fade">
+                        <img src="images/place.png" alt="咖啡宜蘭店">
+                        <div class = "info">
+                            <p><em><strong>找一個舒適角落，品味咖啡帶來的慢生活。</strong></em></p>
+                        </div>
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                    <div class = "dots">
+                        <span class="dot" onclick="currentSlide(1)"></span> 
+                        <span class="dot" onclick="currentSlide(2)"></span> 
+                    </div>
+                </div>  
+            </section>
+        </main>
+
+        <!--網站版權聲明等附加資訊-->
+        <footer>
+            <p>Copyright © 2026 咖啡 ALL Rights Reserved.</p>
+        </footer>
+    </body>
+</html>

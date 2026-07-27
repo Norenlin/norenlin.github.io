@@ -1,0 +1,620 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+header{
+    background-color: rgba(48, 43, 22, 0.8);
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index:1;
+}
+
+header ul{
+    position: absolute;
+    right: 2vw;
+    top :0;
+    line-height: 80px;
+}
+
+main{
+    padding-top:80px;
+}
+
+/*導覽列橫式排列*/
+/*vw(viewport width) 視窗寬度的4%*/
+header li{
+    display: inline;
+    margin-right: 4vw;
+}
+
+header a{
+    color:aliceblue;
+    text-decoration: none;
+}
+
+header a:hover{
+    text-decoration: underline;
+}
+
+h1{
+    color:aliceblue;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    line-height: 80px;
+    background-image: url(images/logo.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    width: 210px;
+    text-indent: -99999px;
+}
+
+/*---------------------------------------------------------*/
+.slogan{
+    background-color: aliceblue;
+    color:white;
+    height:100vh;
+    background-image: url(images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slogan h2{
+    color: black;
+    font-size: 30px;
+    margin-top: 60px;
+}
+
+.slogan p{
+    color: #343434;
+    margin: 10px 0;
+}
+
+.slogan a{
+    color: #343434;
+    text-decoration: none;
+    border: 1px solid #343434;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.slogan a:hover{
+    text-decoration: underline;
+}
+
+/* ----------------------------------------------------------- */
+
+.news{
+    background-color: #564622;
+    color: white;
+    height:80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1.8em;
+    scroll-margin-top:80px;
+}
+
+.shop{
+    display: flex;
+}
+
+.shop img{
+    width: 50%;
+}
+
+.info{
+    width: 50%;
+    background-color: rgb(113, 67, 67);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.info h3{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.info p{
+    text-align: center;
+    line-height: 2em;
+}
+
+/* ------------------------------------------------- */
+
+.mySlides {
+    display: none;
+    align-items:stretch;
+}
+
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  position: absolute;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dots{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+}
+
+.dot{
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: 0.4} 
+  to {opacity: 1}
+}
+
+/* ----------------------------------------------------------- */
+
+.products{
+    display: flex;
+    background-color: #ede9db;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100px 80px;
+    min-height:100vh;
+}
+
+.products img{
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.view{
+    width: 310px;
+    position: relative;
+    text-align: center;
+}
+
+.mask{
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    height:200px;
+    opacity: 0;
+    background-color: rgba(255,255,255,0.8);
+    color:black;
+    border-radius: 10px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.view:hover img{
+    transform:scale(1.08, 1.08);
+}
+
+.view:hover .mask{
+    transform:scale(1.08, 1.08);
+    opacity:1;
+}
+
+/* --------------------------------------------------- */
+
+.title{
+    background-color: aliceblue;
+    color:white;
+    height:100vh;
+    background-image: url(images/about.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 5%;
+}
+
+.title h2{
+    color: white;
+    font-size: 60px;
+    margin-top: 60px;
+}
+
+.title p{
+    color: white;
+    margin: 10px 0;
+}
+
+.about{
+    background-color: aliceblue;
+    height:100vh;
+    background-image:linear-gradient(to left,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.4)
+        ), url(images/story.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding-left: 5%;
+}
+
+.about h3{
+    font-size: 60px;
+    display: inline-block;
+    border-bottom: 3px solid #3b200b;
+    padding-bottom: 5px;
+    padding-top: 30px;
+}
+
+.story {
+  max-width: 600px;
+  height: 100%;
+  color:black;
+  padding-top: 50px;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 2;
+}
+
+.fade {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --------------------------------------------------- */
+
+.place{
+    display:flex;
+    justify-content:flex-start;
+    background-color: #ede9db;
+    width: 100%;
+    min-height:100vh;
+}
+
+.place h2{
+    padding-left: 1%;
+    font-size: 30px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    color: rgb(83, 56, 38);
+}
+
+.contact{
+    display:inline-block;
+    width:400px;
+    margin:50px;
+    padding:30px;
+    text-align:left;
+    background-color:white;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.contact i {
+    width: 30px;
+    color: #8b5e3c;
+}
+
+.contact h3{
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    color: rgb(83, 56, 38);
+    padding: 10px;
+    font-size: 25px;
+}
+
+.contact p{
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.contact a{
+    text-decoration: none;
+    color: black;
+}
+
+.contact a:hover{
+    color:rgb(86, 59, 39);
+}
+
+/* --------------------------------------------------- */
+
+.login {
+    background-color: rgba(145, 137, 106, 0.8);
+    color: white;
+    font-size: 15px;
+    padding: 10px 10px;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+}
+
+.login:hover {
+  opacity: 0.8;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #c9a5a3;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+span.psw a{
+    color:black;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+/* --------------------------------------------------- */
+
+footer{
+    background-color: black;
+    color: #b7b7b7;
+    height:50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+}
+
+.dropdown{
+    display: none;
+}
+
+/* ------------------------響應式設計語法----------------------*/
+@media screen and (max-width: 1200px){
+    html{
+        scroll-behavior:smooth;
+    }
+
+    .navbar{
+        display: none;
+    }
+
+    header h1{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .news h2{
+        font-size: 40px;
+    }
+
+    .menu{
+        display: block;
+        background-color: transparent;
+        color: white;
+        font-size: 35px;
+        position: absolute;
+        top: 0px;
+        left: 20px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .menu:hover, .menu:focus {
+        background-color: transparent;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top:50px;
+        left:20px;
+        background-color: rgb(133, 91, 91);
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {background-color: #ddd;}
+
+    .show {display: block;}
+
+    .info h3{
+        font-size: 15px;
+    }
+    .info{
+        font-size: 11px;
+    }
+
+    .products{
+        flex-direction: column;
+        padding: 60px 0;
+    }
+
+    .products div{
+        margin-top: 40px;
+        margin-bottom: 30px;
+    }
+
+    .about h3{
+        font-size: 30px;
+    }
+
+    .story{
+        font-size: 15px;
+        padding-top: 5px;
+    }
+
+    span.psw {
+     display: block;
+     float: none;
+    }
+    
+    .cancelbtn {
+        width: 100%;
+    }
+}

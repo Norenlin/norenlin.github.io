@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang = "zh-TW">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content ="width =device-width, initial-scale = 1.0">
+        <title>咖啡</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link rel = "stylesheet" href = "style.css">
+        <script src = "script.js" defer> </script>
+    </head>
+    <body>
+        <!--header網站相關資訊，em 斜體，strong 粗體-->
+        <header>
+            <h1>咖啡</h1>
+            <!--響應式-->
+            <div class = "dropdown">
+                <button onclick = "myFunction()" class = "menu">&#9776;</button>
+                <div id = "myDropdown" class = "dropdown-content">
+                    <li><a href = "index.html">首頁</a></li>
+                    <li><a href = "place.html">門市資訊</a></li>
+                    <li><a href = "index.html#news">最新消息</a></li>
+                    <li><a href = "products.html">商品介紹</a></li>
+                    <li><a href = "about.html">關於我們</a></li>
+                    <button class = "login" onclick="document.getElementById('id01').style.display='block'" 
+                    style="width:auto;">會員登入</button>
+                </div>
+            </div>
+
+            <!--桌面板-->
+            <!--nav網站導覽列或主選單-->
+            <nav class = "navbar">
+                <ul>
+                    <li><a href = "index.html">首頁</a></li>
+                    <li><a href = "place.html">門市資訊</a></li>
+                    <li><a href = "index.html#news">最新消息</a></li>
+                    <li><a href = "products.html">商品介紹</a></li>
+                    <li><a href = "about.html">關於我們</a></li>
+                    <button class = "login" onclick="document.getElementById('id01').style.display='block'" 
+                    style="width:auto;">會員登入</button>
+                </ul>
+            </nav>
+
+            <div id="id01" class="modal">
+                <form class="modal-content animate" action="/action_page.php" method="post">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                         title="Close Modal">&times;</span>
+                        <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+                    </div>
+                    <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="uname" required>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="psw" required>
+                            
+                        <button class = "login" type="submit">Login</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                        </label>
+                    </div>
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                         class="cancelbtn">Cancel</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>
+                </form>
+            </div>
+        </header>
+
+        <!--網頁主要內容-->
+        <main>
+            <!--不同主題分類-->
+            <section class = "place">
+                <div class = "fade">
+                    <h2><em>門市資訊</em></h2>
+                    <div class = "contact">
+                        <h3>宜蘭宜蘭店</h3>
+                        <p><i class="fa-solid fa-phone"></i>(03)1234567</p>
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <a href="https://www.google.com/maps/search/?api=1&query=台北市信義區西村里"target="_blank">
+                                宜蘭市民權路二段
+                            </a>
+                            
+                        </p>
+                        <p><i class="fa-solid fa-clock"></i>營業時間 | </p>
+                        <p><i></i>周一至周六 10:00-20:00</p>
+                        <p><i></i>每周日公休</p>
+                    </div>
+
+                    <div class = "contact">
+                        <h3>台北信義店</h3>
+                        <p><i class="fa-solid fa-phone"></i>(02)1234567</p>
+                        <p>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <a href="https://www.google.com/maps/search/?api=1&query=台北市信義區西村里"target="_blank">
+                                台北市信義區西村里
+                            </a>
+                        </p>
+                        <p><i class="fa-solid fa-clock"></i>營業時間 | </p>
+                        <p><i></i>周一至周六 10:00-20:00</p>
+                        <p><i></i>每周日公休</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!--網站版權聲明等附加資訊-->
+        <footer>
+            <p>Copyright © 2026 咖啡 ALL Rights Reserved.</p>
+        </footer>
+    </body>
+</html>
