@@ -1,12 +1,17 @@
+/* --*是CSS通用選擇器，會選取所有元素。padding: 0 和 margin: 0 
+是將所有元素的預設內距和外距清除，方便後續自行控制網頁版面。-- */
 *{
     padding: 0;
     margin: 0;
 }
 
+/* --scroll-behavior捲動效果-- */
 html{
     scroll-behavior:smooth;
 }
 
+/* --fixed 把元素固定在瀏覽器畫面上的某個位置-- */
+/* --z-index 是控制元素前後層級，數字越大，比較容易蓋在其他元素上面-- */
 header{
     background-color: rgba(48, 43, 22, 0.8);
     height: 80px;
@@ -15,6 +20,9 @@ header{
     z-index:1;
 }
 
+/* --absolute 的位置通常是相對於最近的已定位父元素-- */
+/* --vw = viewport width（瀏覽器視窗寬度）的百分比-- */
+/* --line-height 是控制文字行高-- */
 header ul{
     position: absolute;
     right: 2vw;
@@ -22,12 +30,15 @@ header ul{
     line-height: 80px;
 }
 
+/* --border-box 讓元素設定的 width 和 height 包含 padding 和 border，這樣可以比較容易控制元素的實際大小，
+避免加上 padding 或 border 後超出原本設定的尺寸-- */
 main{
-    padding-top:80px;
+    padding-top: 80px;
+    box-sizing: border-box;
 }
 
-/*導覽列橫式排列*/
-/*vw(viewport width) 視窗寬度的4%*/
+/* --inline 是元素以「行內元素」的方式排列，排在同一行-- */
+/* --margin-right 選單項目排成一行，而且每個項目右邊留 4vw 的間距-- */
 header li{
     display: inline;
     margin-right: 4vw;
@@ -42,6 +53,7 @@ header a:hover{
     text-decoration: underline;
 }
 
+/* --text 文字第一行的縮排-- */
 h1{
     color:aliceblue;
     position: absolute;
@@ -56,7 +68,11 @@ h1{
     text-indent: -99999px;
 }
 
-/*---------------------------------------------------------*/
+/* --Slogan-------------------------------------------------------------------------------------- */
+/* --cover 背景圖片完整填滿元素，而且不留空白-- */
+/* --flex 預設會讓子元素水平排列，flex-direction: column 把flex的排列方向改成垂直方向-- */
+/* --align-items 控制交叉軸的位置(左右方向)，也就是水平置中-- */
+/* --justify-content 控制主要軸(上下方向)，也就是垂直置中-- */
 .slogan{
     background-color: aliceblue;
     color:white;
@@ -94,8 +110,9 @@ h1{
     text-decoration: underline;
 }
 
-/* ----------------------------------------------------------- */
-
+/* --News----------------------------------------------------------------------------------------- */
+/* --scroll-margin-top 網頁捲動到某個元素時，頂部要預留多少空間-- */
+/* --1em = 目前元素的1倍字體大小-- */
 .news{
     background-color: #564622;
     color: white;
@@ -135,19 +152,21 @@ h1{
     line-height: 2em;
 }
 
-/* ------------------------------------------------- */
-
+/* --MySlides圖片輪播----------------------------------------------------------------------------------------- */
+/* --display: none 讓元素完全消失，而且不佔據原本的版面空間-- */
+/* --stretch 讓子元素在交叉軸方向拉伸，盡可能填滿父元素的高度或寬度-- */
 .mySlides {
     display: none;
     align-items:stretch;
 }
-
+/* --relative 保留自己原本的位置，但可以用 top / right / bottom / left 做偏移-- */
 .slideshow-container {
   width: 100%;
   position: relative;
   margin: auto;
 }
-
+/* --transition 平滑過渡效果，不會瞬間跳過去，而是花一段時間慢慢變化-- */
+/* --user-select: none 使用者能不能用滑鼠選取這個元素上的文字-- */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -172,7 +191,7 @@ h1{
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
-
+/* --transform:translateX(-50%) 沿著水平方向（X 軸）移動 50% 的自身寬度-- */
 .dots{
     position:absolute;
     bottom:15px;
@@ -180,7 +199,7 @@ h1{
     transform:translateX(-50%);
     text-align:center;
 }
-
+/* --transition: background-color 0.6s ease 當背景顏色發生改變時，讓它用0.6秒，以平滑的速度慢慢變化-- */
 .dot{
     cursor: pointer;
     height: 15px;
@@ -196,25 +215,248 @@ h1{
   background-color: #717171;
 }
 
+/* --------------------------------------------------- */
+
+.login {
+    background-color: rgba(145, 137, 106, 0.8);
+    color: white;
+    font-size: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+/* --opacity 不透明度-- */
+.login:hover {
+    opacity: 0.8;
+}
+
+/* --登入視窗-------------------------------------------------------------------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+
+/* --登入視窗本體-- */
+/* --margin: top right bottom left-- */
+/* --border: 邊框粗細 solid實線 顏色，radius 圓角-- */
+/* --overflow: hidden 超出這個元素範圍的內容隱藏起來-- */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    width: 400px;
+    max-width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* --上方圖片區-- */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+/* --頭像-- */
+/* --object-fit 圖片或影片在固定寬高的元素裡，要怎麼縮放和裁切，cover 圖片完整填滿指定的寬度和高度，但圖片比例不變，超出的部分會被裁切-- */
+img.avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* --關閉 X-- */
+.close {
+    position: absolute;
+    right: 20px;
+    top: -10px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+/* --hover 滑鼠移到元素上時，focus 元素取得焦點時-- */
+.close:hover, .close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* --表單內容-- */
+.container {
+    background-color:#f1f1f1;
+    padding: 20px;
+}
+
+/* --輸入框-- */
+/* --inline-block 可以跟其他元素排在同一行，又可以設定寬度、高度、padding、margin-- */
+input[type = text], input[type = password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* --Modal 裡的登入按鈕-- */
+.modal .login {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/* --取消按鈕-- */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: rgb(246, 65, 65);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancelbtn:hover {
+    opacity: 0.8;
+}
+
+/* --忘記密碼-- */
+span.psw {
+    float: right;
+    padding-top: 10px;
+}
+
+span.psw a {
+    color: black;
+}
+
+/* --登入動畫-- */
+.animate {
+    animation: animatezoom 0.6s;
+}
+
+/* --登入視窗出現時的放大動畫-- */
+/* --from 動畫開始的狀態，scale(0) 代表元素的縮放比例是0-- */
+/* --to 動畫結束的狀態-- */
+@keyframes animatezoom {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+/* --Footer 網站版權聲明等附加資訊---------------------------------------------------------------- */
+footer{
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: #3b200b;
+    color: white;
+}
+
+/* --About--------------------------------------------------------------------------------- */
+.title{
+    background-color: aliceblue;
+    color:white;
+    height:100vh;
+    background-image: url(images/about.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 15%;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+
+.title h2{
+    color: white;
+    font-size: 60px;
+}
+
+.title p{
+    color: white;
+    margin: 10px 0;
+}
+
+/* --linear-gradient 線性漸層背景-- */
+.about{
+    background-color: aliceblue;
+    min-height: 100vh;
+    background-image: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.4)
+    ), url(images/story.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-left: 5%;
+    box-sizing: border-box;
+}
+
+.about h3{
+    font-size: 60px;
+    display: inline-block;
+    border-bottom: 3px solid #3b200b;
+    padding-bottom: 5px;
+    padding-top: 20px;
+}
+
+/* --text-align: justify 讓文字左右兩邊對齊，text-justify: inter-word  指定「透過字詞之間的間距」來調整對齊-- */
+/* --line-height 文字每一行之間的高度-- */
+.story {
+    max-width: 600px;
+    color:black;
+    padding-top: 30px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 2;
+}
+
+/* --transform: translateY(100px) 讓元素在 Y 軸（上下方向）移動 100px(往下移動 100px)-- */
 .fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1s ease, transform 1s ease;
 }
 
-@keyframes fade {
-  from {opacity: 0.4} 
-  to {opacity: 1}
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* ----------------------------------------------------------- */
-
+/* --Product---------------------------------------------------------------------------------------- */
+/* --space-between 讓子元素平均分散，第一個靠最前面，最後一個靠最後面，中間的空間平均分配-- */
 .products{
     display: flex;
     background-color: #ede9db;
     justify-content: space-between;
     align-items: center;
     padding: 0 100px 80px;
-    min-height:100vh;
+    min-height: 100vh;
 }
 
 .products img{
@@ -248,6 +490,7 @@ h1{
     cursor: pointer;
 }
 
+/* --scale 放大/縮小-- */
 .view:hover img{
     transform:scale(1.08, 1.08);
 }
@@ -257,83 +500,7 @@ h1{
     opacity:1;
 }
 
-/* --------------------------------------------------- */
-
-.title{
-    background-color: aliceblue;
-    color:white;
-    height:100vh;
-    background-image: url(images/about.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding-left: 5%;
-}
-
-.title h2{
-    color: white;
-    font-size: 60px;
-    margin-top: 60px;
-}
-
-.title p{
-    color: white;
-    margin: 10px 0;
-}
-
-.about{
-    background-color: aliceblue;
-    height:100vh;
-    background-image:linear-gradient(to left,
-            rgba(255, 255, 255, 0),
-            rgba(255, 255, 255, 0.4)
-        ), url(images/story.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    text-align: center;
-    padding-left: 5%;
-}
-
-.about h3{
-    font-size: 60px;
-    display: inline-block;
-    border-bottom: 3px solid #3b200b;
-    padding-bottom: 5px;
-    padding-top: 30px;
-}
-
-.story {
-  max-width: 600px;
-  height: 100%;
-  color:black;
-  padding-top: 50px;
-  text-align: justify;
-  text-justify: inter-word;
-  line-height: 2;
-}
-
-.fade {
-    opacity: 0;
-    transform: translateY(100px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --------------------------------------------------- */
-
+/* --Place---------------------------------------------------------------------------------------- */
 .place{
     display:flex;
     justify-content:flex-start;
@@ -392,251 +559,619 @@ h1{
     color:rgb(86, 59, 39);
 }
 
-/* --------------------------------------------------- */
-
-.login {
-    background-color: rgba(145, 137, 106, 0.8);
-    color: white;
-    font-size: 15px;
-    padding: 10px 10px;
-    cursor: pointer;
-    width: 100%;
-    border: none;
+/* --Cart購物車----------------------------------------------------------------------------------- */
+/* --calc(100vh - 130px(header)) 設定元素的最小高度，而且高度會根據螢幕大小動態計算，讓主要內容至少填滿剩下的畫面-- */
+.cart-page {
+    min-height: calc(100vh - 130px);
+    background: #f5f1e8;
+    padding: 100px 10%;
 }
 
-.login:hover {
-  opacity: 0.8;
+/* --購物車標題-- */
+.cart-page h2 {
+    text-align: center;
+    color: #4b3621;
+    font-size: 32px;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
 }
 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+/* --購物車內容區-- */
+#cartItems {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-
-.cancelbtn {
-  width: auto;
-  padding: 10px 18px;
-  background-color: #c9a5a3;
-}
-
-
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-  position: relative;
-}
-
-img.avatar {
-  width: 40%;
-  border-radius: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-span.psw {
-  float: right;
-  padding-top: 16px;
-}
-
-span.psw a{
-    color:black;
-}
-
-
-.modal {
-  display: none; 
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto;
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); 
-  padding-top: 60px;
-}
-
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
-  border: 1px solid #888;
-}
-
-
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover, .close:focus {
-  color: red;
-  cursor: pointer;
-}
-
-
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-
-
-/* --------------------------------------------------- */
-
-footer{
-    background-color: black;
-    color: #b7b7b7;
-    height:50px;
+/* --每個商品，從javascript產生-- */
+/* --box-shadow 陰影-- */
+.cart-item {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    background: #ffffff;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(75, 54, 33, 0.08);
+    transition: 0.3s;
+}
+
+.cart-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(75, 54, 33, 0.15);
+}
+
+/* --商品名稱-- */
+.cart-item strong {
+    display: block;
+    color: #4b3621;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+/* --商品單價、小計-- */
+.cart-item p {
+    color: #777;
     font-size: 15px;
+    margin: 5px 0;
 }
 
-.dropdown{
-    display: none;
+/* 商品圖片和文字水平排列 */
+.cart-product {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-/* ------------------------響應式設計語法----------------------*/
-@media screen and (max-width: 1200px){
-    html{
-        scroll-behavior:smooth;
+/* 商品圖片 */
+.cart-product img {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+/* 商品文字 */
+.cart-product strong {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* --數量控制區-- */
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --(+/-)按鈕-- */
+.cart-controls button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: #eee5d8;
+    color: #4b3621;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* --(+/-)滑鼠移上去-- */
+.cart-controls button:hover {
+    background: #c8a27a;
+    color: white;
+}
+
+/* --數量-- */
+.cart-controls span {
+    min-width: 25px;
+    text-align: center;
+    color: #4b3621;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* --刪除按鈕-- */
+.cart-controls .remove-cart {
+    width: auto;
+    height: auto;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background: #b88c7d;
+    color: white;
+    font-size: 14px;
+}
+
+/* --刪除按鈕 hover-- */
+.cart-controls .remove-cart:hover {
+    background: #9b6f61;
+}
+
+/* --購物車總金額-- */
+.cart-total {
+    max-width: 900px;
+    margin: 35px auto 0;
+    padding: 25px 30px;
+    background: #fff;
+    border-radius: 15px;
+    text-align: right;
+    box-shadow: 0 5px 20px rgba(75, 54, 33, 0.08);
+}
+
+/* --總金額文字-- */
+.cart-total h3 {
+    color: #4b3621;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+/* --結帳按鈕-- */
+/* --文字中每個字元之間的間距-- */
+.checkout {
+    border: none;
+    padding: 13px 30px;
+    border-radius: 25px;
+    background: #5b4636;
+    color: white;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* --結帳按鈕 hover-- */
+.checkout:hover {
+    background: #8b6a4e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(91, 70, 54, 0.25);
+}
+
+/* --購物車是空的-- */
+/* --(>)只選擇「直接的子元素」--*/
+#cartItems > p {
+    text-align: center;
+    background: white;
+    padding: 50px 20px;
+    border-radius: 15px;
+    color: #777;
+    font-size: 18px;
+    box-shadow: 0 5px 20px rgba(75, 54, 33, 0.08);
+}
+
+/* --RWD 響應式網頁設計-------------------------------------------------- */
+/* 當螢幕寬度小於 768px 時，套用手機版樣式 */
+@media screen and (max-width: 768px) {
+
+    /* --Header 手機版-- */
+    header {
+        height: auto;
+        min-height: 80px;
     }
 
-    .navbar{
-        display: none;
+    /* Logo */
+    h1 {
+        left: 20px;
+        width: 150px;
+        height: 80px;
     }
 
-    header h1{
-        left: 50%;
-        transform: translateX(-50%);
+    /* 導覽列 */
+    header ul {
+        position: static;
+        text-align: right;
+        padding: 20px 15px;
+        line-height: normal;
     }
 
-    .news h2{
+    header li {
+        display: inline-block;
+        margin-right: 10px;
+        margin-bottom: 8px;
+    }
+
+    header a {
+        font-size: 14px;
+    }
+
+    /* 會員登入按鈕 */
+    .login {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+
+    /* --首頁 Slogan 手機版-- */
+    .slogan {
+        height: 100vh;
+        padding: 0 20px;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .slogan h2 {
+        font-size: 25px;
+        margin-top: 40px;
+    }
+
+    .slogan p {
+        font-size: 15px;
+    }
+
+
+    /* --News 手機版-- */
+    .news {
+        height: auto;
+        min-height: 80px;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 17px;
+    }
+
+
+    /* --店家介紹 shop 手機版-- */
+    .shop {
+        flex-direction: column;
+    }
+
+    .shop img {
+        width: 100%;
+    }
+
+    .info {
+        width: 100%;
+        padding: 50px 20px;
+        box-sizing: border-box;
+    }
+
+    .info h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .info p {
+        font-size: 15px;
+    }
+
+
+    /* --輪播圖手機版-- */
+    .prev,
+    .next {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    /* --會員登入視窗手機版-- */
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+    img.avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+
+    /* --About 標題手機版-- */
+    .title {
+        height: 100vh;
+        padding: 120px 25px 0;
+        box-sizing: border-box;
+    }
+
+    .title h2 {
         font-size: 40px;
     }
 
-    .menu{
-        display: block;
-        background-color: transparent;
-        color: white;
-        font-size: 35px;
-        position: absolute;
-        top: 0px;
-        left: 20px;
-        border: none;
-        cursor: pointer;
-    }
-
-    .menu:hover, .menu:focus {
-        background-color: transparent;
-    }
-
-    .dropdown {
-        position: relative;
-        display: inline-block;
-    }
-
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        top:50px;
-        left:20px;
-        background-color: rgb(133, 91, 91);
-        min-width: 160px;
-        overflow: auto;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .dropdown a:hover {background-color: #ddd;}
-
-    .show {display: block;}
-
-    .info h3{
+    .title p {
         font-size: 15px;
     }
-    .info{
-        font-size: 11px;
+
+
+    /* --About 內容手機版-- */
+    .about {
+        min-height: 100vh;
+        padding: 30px 25px;
+        box-sizing: border-box;
     }
 
-    .products{
+    .about h3 {
+        font-size: 40px;
+    }
+
+    .story {
+        max-width: 100%;
+        padding-top: 20px;
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+
+    /* --Product 商品手機版-- */
+    .products {
         flex-direction: column;
-        padding: 60px 0;
+        justify-content: center;
+        gap: 40px;
+        padding: 100px 30px 60px;
+        box-sizing: border-box;
     }
 
-    .products div{
-        margin-top: 40px;
+    .view {
+        width: 100%;
+        max-width: 310px;
+    }
+
+    .products img {
+        width: 100%;
+        height: 200px;
+    }
+
+
+    /* --Place 門市資訊手機版-- */
+    .place {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        box-sizing: border-box;
+    }
+
+    .place h2 {
+        padding-left: 0;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .contact {
+        width: 90%;
+        margin: 15px 0;
+        padding: 25px;
+        box-sizing: border-box;
+    }
+
+    .contact h3 {
+        font-size: 22px;
+    }
+
+    .contact p {
+        font-size: 16px;
+    }
+
+
+    /* --Cart 購物車手機版-- */
+    .cart-page {
+        min-height: calc(100vh - 80px);
+        padding: 100px 20px 50px;
+        box-sizing: border-box;
+    }
+
+    .cart-page h2 {
+        font-size: 28px;
         margin-bottom: 30px;
     }
 
-    .mask{
-        position: absolute;
-        top:-40px;
-        left:0;
-    }
-
-    .place h2{
-        font-size: 15px;
-    }
-
-    .contact{
-        flex-direction: column;
-        margin:10px;
-    }
-
-    .contact h3{
-        font-size: 15px;
-    }
-
-    .contact p{
-        font-size: 10px;
-    }
-
-    .about h3{
-        font-size: 30px;
-    }
-
-    .story{
-        font-size: 15px;
-        padding-top: 5px;
-    }
-
-    span.psw {
-     display: block;
-     float: none;
-    }
-    
-    .cancelbtn {
+    #cartItems {
         width: 100%;
+    }
+
+    /* 商品卡片 */
+    .cart-item {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    /* 圖片＋文字 */
+    .cart-product {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+    }
+
+    /* 商品圖片 */
+    .cart-product img {
+        width: 90px;
+        height: 70px;
+        flex-shrink: 0;
+    }
+
+    /* 商品文字 */
+    .cart-product > div {
+        flex: 1;
+    }
+
+    .cart-product strong {
+        font-size: 18px;
+    }
+
+    .cart-product p {
+        font-size: 14px;
+    }
+
+    /* 數量控制 */
+    .cart-controls {
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .cart-controls button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .cart-controls .remove-cart {
+        padding: 7px 13px;
+    }
+
+    /* 總金額 */
+    .cart-total {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .cart-total h3 {
+        font-size: 20px;
+    }
+
+    /* 結帳按鈕 */
+    .checkout {
+        width: 100%;
+        padding: 12px;
+    }
+
+
+    /* --Footer 手機版-- */
+    footer {
+        padding: 18px 10px;
+        font-size: 13px;
+    }
+}
+
+/* --漢堡選單-------------------------------------------------- */
+/* 漢堡按鈕預設隱藏 */
+.menu-toggle {
+    display: none;
+}
+
+/* --更小的手機螢幕-------------------------------------------------- */
+/* 當螢幕寬度小於 480px 時 */
+@media screen and (max-width: 1200px) {
+
+    /* 導覽列 */
+    h1 {
+        left: 10px;
+        width: 120px;
+    }
+
+    header ul {
+        padding: 15px 8px;
+    }
+
+    header li {
+        margin-right: 5px;
+    }
+
+    header a {
+        font-size: 12px;
+    }
+
+    .login {
+        font-size: 12px;
+        padding: 7px 8px;
+    }
+
+
+    /* 商品 */
+    .products {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .view {
+        max-width: 280px;
+    }
+
+
+    /* 購物車 */
+    .cart-page {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .cart-item {
+        padding: 15px;
+    }
+
+    .cart-product {
+        gap: 10px;
+    }
+
+    .cart-product img {
+        width: 75px;
+        height: 60px;
+    }
+
+    .cart-product strong {
+        font-size: 16px;
+    }
+
+    .cart-product p {
+        font-size: 13px;
+    }
+
+    .cart-controls {
+        justify-content: center;
+    }
+
+    .cart-total h3 {
+        font-size: 18px;
+    }
+
+    /* 漢堡按鈕 */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+
+        background: none;
+        border: none;
+
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
+    }
+
+    /* 導覽列 */
+    header ul {
+        display: none;
+
+        position: absolute;
+        top: 80px;
+        right: 0;
+
+        width: 100%;
+        background-color: rgba(48, 43, 22, 0.95);
+
+        text-align: center;
+        padding: 20px 0;
+        line-height: normal;
+    }
+
+    /* 點擊漢堡後顯示選單 */
+    header ul.active {
+        display: block;
+    }
+
+    /* 選單項目 */
+    header li {
+        display: block;
+        margin: 0;
+        padding: 12px 0;
+    }
+
+    header li a {
+        display: block;
+        font-size: 16px;
+    }
+
+    /* 會員登入 */
+    header ul .login {
+        margin-top: 10px;
     }
 }

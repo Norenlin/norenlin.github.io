@@ -1,98 +1,96 @@
 <!DOCTYPE html>
 <html lang = "zh-TW">
+    <!-- head 提供給瀏覽器看的設定或資訊 -->
     <head>
+        <!-- 設定網頁的文字編碼 -->
         <meta charset = "UTF-8">
-        <meta name = "viewport" content ="width =device-width, initial-scale = 1.0">
-        <title>咖啡</title>
+        <!-- viewport = 網頁在螢幕上的顯示區域，device-width = 使用者裝置的螢幕寬度，initial-scale = 縮放比例設定為 100% -->
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>咖啡 | 商品介紹</title>
         <link rel = "stylesheet" href = "style.css">
-        <script src = "script.js"> </script>
+        <script src = "script.js" defer> </script>
     </head>
+
+    <!-- body 使用者實際看到的網頁內容 -->
     <body>
-        <!--header網站相關資訊，em 斜體，strong 粗體-->
+        <!-- header網站相關資訊，em 斜體，strong/b粗體 -->
         <header>
             <h1>咖啡</h1>
-            <!--響應式-->
-            <div class = "dropdown">
-                <button onclick = "myFunction()" class = "menu">&#9776;</button>
-                <div id = "myDropdown" class = "dropdown-content">
-                    <li><a href = "index.html">首頁</a></li>
-                    <li><a href = "place.html">門市資訊</a></li>
-                    <li><a href = "index.html#news">最新消息</a></li>
-                    <li><a href = "products.html">商品介紹</a></li>
-                    <li><a href = "about.html">關於我們</a></li>
-                    <button class = "login" onclick="document.getElementById('id01').style.display='block'" 
-                    style="width:auto;">會員登入</button>
-                </div>
-            </div>
-
-            <!--桌面板-->
-            <!--nav網站導覽列或主選單-->
+            <!-- nav 網站導覽列或主選單 -->
             <nav class = "navbar">
-                <ul>
+                <!-- 漢堡選單按鈕 -->
+                <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                <ul id = "Menu">
                     <li><a href = "index.html">首頁</a></li>
                     <li><a href = "place.html">門市資訊</a></li>
                     <li><a href = "index.html#news">最新消息</a></li>
                     <li><a href = "products.html">商品介紹</a></li>
                     <li><a href = "about.html">關於我們</a></li>
-                    <button class = "login" onclick="document.getElementById('id01').style.display='block'" 
-                    style="width:auto;">會員登入</button>
+                    <li><a href="cart.html">🛒 購物車<span id="cartCount">0</span></a></li>
+                    <button class = "login" onclick="openLogin()">會員登入</button>
                 </ul>
             </nav>
 
-            <div id="id01" class="modal">
-                <form class="modal-content animate" action="/action_page.php" method="post">
-                    <div class="imgcontainer">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                         title="Close Modal">&times;</span>
-                        <img src="images/img_avatar2.png" alt="Avatar" class="avatar">
+            <!-- 登入視窗 -->
+            <div id = "id01" class = "modal">
+                <!-- 當表單被提交（submit）時，要執行某個 JavaScript -->
+                <form id = "loginform" class = "modal-content" onsubmit = "login(event)">
+                    <div class = "imgcontainer">
+                        <!-- &times = x(關閉符號) -->
+                        <span onclick = "closeLogin()" class = "close">&times</span>
+                        <img src = "images/img_avatar2.png" alt = "Avatar" class = "avatar">
                     </div>
-                    <div class="container">
-                        <label for="uname"><b>Username</b></label>
-                        <input type="text" placeholder="Enter Username" name="uname" required>
+                    <div class = "container">
+                        <!-- label 輸入框的文字標籤，for 對應到 id，placeholder還沒有輸入東西時顯示的提示文字，require 這個欄位必須填寫 -->
+                        <label for = "uname"><b>帳號</b></label>
+                        <input type = "text" id = "uname" placeholder = "請輸入帳號" required>
+                        <!-- type = "password" 輸入內容會被隱藏 -->
+                        <label for = "psw"><b>密碼</b></label>
+                        <input type = "password" id = "psw" placeholder = "請輸入密碼" required>
 
-                        <label for="psw"><b>Password</b></label>
-                        <input type="password" placeholder="Enter Password" name="psw" required>
-                            
-                        <button class = "login" type="submit">Login</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
-                        </label>
+                        <button class = "login" type = "submit">登入</button>
+
+                        <label><input type = "checkbox" checked = "checked">記住我</label>
                     </div>
-                    <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                         class="cancelbtn">Cancel</button>
-                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    <div class = "container">
+                        <button type = "button" onclick = "closeLogin()" class = "cancelbtn">取消</button>
                     </div>
                 </form>
             </div>
         </header>
-
-        <!--網頁主要內容-->
+        <!-- main 網頁主要內容 -->
         <main>
-            <!--不同主題分類-->
+            <!-- section 不同主題分類 -->
             <section class = "products">
-                <div class ="view">
-                    <img src="images/coffee1.jpg" alt = "美式咖啡">
-                    <div class="mask">
+                <!-- 美式咖啡 -->
+                <div class = "view">
+                    <img src = "images/coffee1.jpg" alt = "美式咖啡">
+                    <div class = "mask">
                         <p><em><strong>濃縮咖啡加入熱水，口感清爽順口<br>展現咖啡最純粹的香氣與回甘</strong></em></p>
                     </div>
                     <h3>美式咖啡</h3>
+                    <p class = "price">NT$80</p>
+                    <button class = "add-cart" onclick = "addToCart('美式咖啡', 80, 'images/coffee1.jpg')">加入購物車</button>
                 </div>
-
-                <div class ="view">
-                    <img src="images/coffee2.jpg" alt = "拿鐵">
-                    <div class="mask">
+                <!-- 拿鐵 -->
+                <div class = "view">
+                    <img src = "images/coffee2.jpg" alt = "拿鐵">
+                    <div class = "mask">
                         <p><em><strong>濃縮咖啡融合綿密鮮奶，口感滑順柔和<br>帶出咖啡與奶香的完美平衡</strong></em></p>
                     </div>
                     <h3>拿鐵</h3>
+                    <p class = "price">NT$100</p>
+                    <button class = "add-cart" onclick = "addToCart('拿鐵', 100, 'images/coffee2.jpg')">加入購物車</button>
                 </div>
-
-                <div class ="view">
-                    <img src="images/coffee3.jpg" alt = "義式咖啡">
-                    <div class="mask">
+                <!-- 義式咖啡 -->
+                <div class = "view">
+                    <img src = "images/coffee3.jpg" alt = "義式咖啡">
+                    <div class = "mask">
                         <p><em><strong>高壓萃取濃縮咖啡，香氣濃郁、風味強烈<br>感受咖啡最經典的精華</strong></em></p>
                     </div>
                     <h3>義式咖啡</h3>
+                    <p class = "price">NT$90</p>
+                    <button class = "add-cart" onclick = "addToCart('義式咖啡', 90, 'images/coffee3.jpg')">加入購物車</button>
                 </div>
             </section>
         </main>
