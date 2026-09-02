@@ -27,17 +27,17 @@
                     <li><a href = "products.html">商品介紹</a></li>
                     <li><a href = "about.html">關於我們</a></li>
                     <li><a href="cart.html">🛒 購物車<span id="cartCount">0</span></a></li>
-                    <button class = "login" onclick="openLogin()">會員登入</button>
+                    <button class = "login">會員登入</button>
                 </ul>
             </nav>
 
             <!-- 登入視窗 -->
             <div id = "id01" class = "modal">
                 <!-- 當表單被提交（submit）時，要執行某個 JavaScript -->
-                <form id = "loginform" class = "modal-content" onsubmit = "login(event)">
+                <form id = "loginform" class = "modal-content">
                     <div class = "imgcontainer">
                         <!-- &times = x(關閉符號) -->
-                        <span onclick = "closeLogin()" class = "close">&times</span>
+                        <span class = "close">&times</span>
                         <img src = "images/img_avatar2.png" alt = "Avatar" class = "avatar">
                     </div>
                     <div class = "container">
@@ -53,7 +53,7 @@
                         <label><input type = "checkbox" checked = "checked">記住我</label>
                     </div>
                     <div class = "container">
-                        <button type = "button" onclick = "closeLogin()" class = "cancelbtn">取消</button>
+                        <button type = "button" class = "cancelbtn">取消</button>
                     </div>
                 </form>
             </div>

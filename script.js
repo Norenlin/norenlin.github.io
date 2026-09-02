@@ -22,12 +22,12 @@ function showSlides(n) {
   }
   // 移除active
   for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace("active", "");
+    dots[i].className = dots[i].className.replace(" active", "");
   }
   // 顯示目前圖片
   slides[slideIndex-1].style.display = "flex";
   // 顯示目前dot  
-  dots[slideIndex-1].className += "active";
+  dots[slideIndex-1].className += " active";
 }
 
 let timer;
