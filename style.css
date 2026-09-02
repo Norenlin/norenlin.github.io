@@ -741,307 +741,6 @@ footer{
     box-shadow: 0 5px 20px rgba(75, 54, 33, 0.08);
 }
 
-/* --RWD 響應式網頁設計-------------------------------------------------- */
-/* 當螢幕寬度小於 768px 時，套用手機版樣式 */
-@media screen and (max-width: 768px) {
-
-    /* --Header 手機版-- */
-    header {
-        height: auto;
-        min-height: 80px;
-    }
-
-    /* Logo */
-    h1 {
-        left: 20px;
-        width: 150px;
-        height: 80px;
-    }
-
-    /* 導覽列 */
-    header ul {
-        position: static;
-        text-align: right;
-        padding: 20px 15px;
-        line-height: normal;
-    }
-
-    header li {
-        display: inline-block;
-        margin-right: 10px;
-        margin-bottom: 8px;
-    }
-
-    header a {
-        font-size: 14px;
-    }
-
-    /* 會員登入按鈕 */
-    .login {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-
-    /* --首頁 Slogan 手機版-- */
-    .slogan {
-        height: 100vh;
-        padding: 0 20px;
-        text-align: center;
-        box-sizing: border-box;
-    }
-
-    .slogan h2 {
-        font-size: 25px;
-        margin-top: 40px;
-    }
-
-    .slogan p {
-        font-size: 15px;
-    }
-
-
-    /* --News 手機版-- */
-    .news {
-        height: auto;
-        min-height: 80px;
-        padding: 15px 20px;
-        box-sizing: border-box;
-        text-align: center;
-        font-size: 17px;
-    }
-
-
-    /* --店家介紹 shop 手機版-- */
-    .shop {
-        flex-direction: column;
-    }
-
-    .shop img {
-        width: 100%;
-    }
-
-    .info {
-        width: 100%;
-        padding: 50px 20px;
-        box-sizing: border-box;
-    }
-
-    .info h3 {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-
-    .info p {
-        font-size: 15px;
-    }
-
-
-    /* --輪播圖手機版-- */
-    .prev,
-    .next {
-        padding: 10px;
-        font-size: 16px;
-    }
-
-    .dot {
-        width: 12px;
-        height: 12px;
-    }
-
-
-    /* --會員登入視窗手機版-- */
-    .modal-content {
-        width: 90%;
-        margin: 15% auto;
-    }
-
-    img.avatar {
-        width: 90px;
-        height: 90px;
-    }
-
-
-    /* --About 標題手機版-- */
-    .title {
-        height: 100vh;
-        padding: 120px 25px 0;
-        box-sizing: border-box;
-    }
-
-    .title h2 {
-        font-size: 40px;
-    }
-
-    .title p {
-        font-size: 15px;
-    }
-
-
-    /* --About 內容手機版-- */
-    .about {
-        min-height: 100vh;
-        padding: 30px 25px;
-        box-sizing: border-box;
-    }
-
-    .about h3 {
-        font-size: 40px;
-    }
-
-    .story {
-        max-width: 100%;
-        padding-top: 20px;
-        font-size: 15px;
-        line-height: 1.8;
-    }
-
-
-    /* --Product 商品手機版-- */
-    .products {
-        flex-direction: column;
-        justify-content: center;
-        gap: 40px;
-        padding: 100px 30px 60px;
-        box-sizing: border-box;
-    }
-
-    .view {
-        width: 100%;
-        max-width: 310px;
-    }
-
-    .products img {
-        width: 100%;
-        height: 200px;
-    }
-
-
-    /* --Place 門市資訊手機版-- */
-    .place {
-        flex-direction: column;
-        align-items: center;
-        padding: 30px 0;
-        box-sizing: border-box;
-    }
-
-    .place h2 {
-        padding-left: 0;
-        font-size: 28px;
-        margin-bottom: 20px;
-    }
-
-    .contact {
-        width: 90%;
-        margin: 15px 0;
-        padding: 25px;
-        box-sizing: border-box;
-    }
-
-    .contact h3 {
-        font-size: 22px;
-    }
-
-    .contact p {
-        font-size: 16px;
-    }
-
-
-    /* --Cart 購物車手機版-- */
-    .cart-page {
-        min-height: calc(100vh - 80px);
-        padding: 100px 20px 50px;
-        box-sizing: border-box;
-    }
-
-    .cart-page h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
-
-    #cartItems {
-        width: 100%;
-    }
-
-    /* 商品卡片 */
-    .cart-item {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 20px;
-        gap: 20px;
-    }
-
-    /* 圖片＋文字 */
-    .cart-product {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-    }
-
-    /* 商品圖片 */
-    .cart-product img {
-        width: 90px;
-        height: 70px;
-        flex-shrink: 0;
-    }
-
-    /* 商品文字 */
-    .cart-product > div {
-        flex: 1;
-    }
-
-    .cart-product strong {
-        font-size: 18px;
-    }
-
-    .cart-product p {
-        font-size: 14px;
-    }
-
-    /* 數量控制 */
-    .cart-controls {
-        width: 100%;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-    }
-
-    .cart-controls button {
-        width: 32px;
-        height: 32px;
-    }
-
-    .cart-controls .remove-cart {
-        padding: 7px 13px;
-    }
-
-    /* 總金額 */
-    .cart-total {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .cart-total h3 {
-        font-size: 20px;
-    }
-
-    /* 結帳按鈕 */
-    .checkout {
-        width: 100%;
-        padding: 12px;
-    }
-
-
-    /* --Footer 手機版-- */
-    footer {
-        padding: 18px 10px;
-        font-size: 13px;
-    }
-}
-
 /* --漢堡選單-------------------------------------------------- */
 /* 漢堡按鈕預設隱藏 */
 .menu-toggle {
@@ -1049,13 +748,17 @@ footer{
 }
 
 /* --更小的手機螢幕-------------------------------------------------- */
-/* 當螢幕寬度小於 480px 時 */
-@media screen and (max-width: 1200px) {
+/* 當螢幕寬度小於 ooo px 時 */
+@media screen and (max-width: 768px) {
 
     /* 導覽列 */
     h1 {
         left: 10px;
         width: 120px;
+    }
+
+    header {
+        height: 80px;
     }
 
     header ul {
@@ -1075,6 +778,117 @@ footer{
         padding: 7px 8px;
     }
 
+    main {
+        padding-top: 80px;
+    }
+
+    .slogan {
+        height: calc(100vh - 80px);
+        min-height: 600px;
+
+        padding: 0 20px;
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+
+    .slogan h2 {
+        font-size: 25px;
+        margin-top: 40px;
+    }
+
+    .slogan p {
+        font-size: 15px;
+    }
+
+
+    /* ================= News ================= */
+
+    .news {
+        height: auto;
+        min-height: 80px;
+
+        padding: 15px 20px;
+        box-sizing: border-box;
+
+        text-align: center;
+        font-size: 17px;
+    }
+
+
+    /* ================= Shop ================= */
+
+    .shop {
+        flex-direction: column;
+    }
+
+    .slideshow-container {
+        width: 100%;
+    }
+
+    .mySlides {
+        flex-direction: column;
+    }
+
+    .shop img {
+        width: 100%;
+        display: block;
+    }
+
+    .info {
+        width: 100%;
+        min-height: 220px;
+
+        padding: 40px 20px;
+        box-sizing: border-box;
+
+        text-align: center;
+    }
+
+    .info h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .info p {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+
+    /* ================= 輪播按鈕 ================= */
+
+    .prev,
+    .next {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+
+    /* ================= Login ================= */
+
+    .modal-content {
+        width: 90%;
+        margin: 15% auto;
+    }
+
+    img.avatar {
+        width: 90px;
+        height: 90px;
+    }
+
+
+    /* ================= Footer ================= */
+
+    footer {
+        padding: 18px 10px;
+        font-size: 13px;
+    }
 
     /* 商品 */
     .products {
