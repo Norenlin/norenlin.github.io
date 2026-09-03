@@ -751,37 +751,71 @@ footer{
 /* 當螢幕寬度小於 ooo px 時 */
 @media screen and (max-width: 768px) {
 
-    /* 導覽列 */
+    /* --導覽列-- */
+    header {
+        height: 80px;
+    }
+
     h1 {
         left: 10px;
         width: 120px;
     }
 
-    header {
-        height: 80px;
+    /* --漢堡按鈕-- */
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 32px;
+        cursor: pointer;
     }
 
+    /* --手機版選單-- */
     header ul {
-        padding: 15px 8px;
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(48, 43, 22, 0.95);
+        text-align: center;
+        padding: 20px 0;
+        line-height: normal;
+        box-sizing: border-box;
     }
 
+    /* --點擊漢堡後顯示-- */
+    header ul.active {
+        display: block;
+    }
+
+    /* --選單項目-- */
     header li {
-        margin-right: 5px;
+        display: block;
+        margin: 0;
+        padding: 12px 0;
     }
 
-    header a {
-        font-size: 12px;
+    header li a {
+        display: block;
+        font-size: 16px;
     }
 
-    .login {
-        font-size: 12px;
-        padding: 7px 8px;
+    /* --會員登入按鈕-- */
+    header ul .login {
+        margin-top: 10px;
     }
 
+    /* --Main-- */
     main {
         padding-top: 80px;
     }
 
+    /* --Slogan-- */
     .slogan {
         height: calc(100vh - 80px);
         min-height: 600px;
@@ -801,27 +835,17 @@ footer{
         font-size: 15px;
     }
 
-
-    /* ================= News ================= */
-
+    /* --News-- */
     .news {
         height: auto;
         min-height: 80px;
-
         padding: 15px 20px;
         box-sizing: border-box;
-
         text-align: center;
         font-size: 17px;
     }
 
-
-    /* ================= Shop ================= */
-
-    .shop {
-        flex-direction: column;
-    }
-
+    /* --Shop--*/
     .slideshow-container {
         width: 100%;
     }
@@ -838,10 +862,8 @@ footer{
     .info {
         width: 100%;
         min-height: 220px;
-
         padding: 40px 20px;
         box-sizing: border-box;
-
         text-align: center;
     }
 
@@ -856,10 +878,8 @@ footer{
     }
 
 
-    /* ================= 輪播按鈕 ================= */
-
-    .prev,
-    .next {
+    /* --輪播按鈕-- */
+    .prev, .next {
         padding: 10px;
         font-size: 16px;
     }
@@ -869,9 +889,7 @@ footer{
         height: 12px;
     }
 
-
-    /* ================= Login ================= */
-
+    /* --Login-- */
     .modal-content {
         width: 90%;
         margin: 15% auto;
@@ -882,26 +900,29 @@ footer{
         height: 90px;
     }
 
-
-    /* ================= Footer ================= */
-
+    /* --Footer-- */
     footer {
         padding: 18px 10px;
         font-size: 13px;
     }
 
-    /* 商品 */
+    /* --商品-- */
     .products {
         padding-left: 20px;
         padding-right: 20px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
     }
 
     .view {
-        max-width: 280px;
+        width: 100%;
+        max-width: 350px;
     }
 
-
-    /* 購物車 */
+    /* --購物車-- */
     .cart-page {
         padding-left: 15px;
         padding-right: 15px;
@@ -934,58 +955,5 @@ footer{
 
     .cart-total h3 {
         font-size: 18px;
-    }
-
-    /* 漢堡按鈕 */
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        right: 20px;
-        top: 20px;
-
-        background: none;
-        border: none;
-
-        color: white;
-        font-size: 32px;
-        cursor: pointer;
-    }
-
-    /* 導覽列 */
-    header ul {
-        display: none;
-
-        position: absolute;
-        top: 80px;
-        right: 0;
-
-        width: 100%;
-        background-color: rgba(48, 43, 22, 0.95);
-
-        text-align: center;
-        padding: 20px 0;
-        line-height: normal;
-    }
-
-    /* 點擊漢堡後顯示選單 */
-    header ul.active {
-        display: block;
-    }
-
-    /* 選單項目 */
-    header li {
-        display: block;
-        margin: 0;
-        padding: 12px 0;
-    }
-
-    header li a {
-        display: block;
-        font-size: 16px;
-    }
-
-    /* 會員登入 */
-    header ul .login {
-        margin-top: 10px;
     }
 }
