@@ -955,4 +955,39 @@ footer{
     .cart-total h3 {
         font-size: 18px;
     }
+
+    /* --門市資訊-- */
+    .place {
+        width: 100%;
+        min-height: auto;
+        box-sizing: border-box;
+    }
+
+    .place .fade {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .place h2 {
+        padding-left: 20px;
+        font-size: 25px;
+    }
+
+    .contact {
+        display: block;
+        width: calc(100% - 40px);
+        margin: 30px 20px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .contact h3 {
+        font-size: 22px;
+        padding: 5px;
+    }
+
+    .contact p {
+        font-size: 15px;
+        padding: 8px 0;
+    }
 }
