@@ -26,8 +26,11 @@
                     <li><a href = "index.html#news">最新消息</a></li>
                     <li><a href = "products.html">商品介紹</a></li>
                     <li><a href = "about.html">關於我們</a></li>
-                    <li><a href="cart.html">🛒 購物車<span id="cartCount">0</span></a></li>
-                    <button class = "login">會員登入</button>
+                    <li><a href = "cart.html">🛒 購物車<span id = "cartCount">0</span></a></li>
+                    <li class="member-area">
+                        <button class = "login" id = "memberButton">會員登入</button>
+                        <button class = "login" id = "logoutButton" style = "display: none;">登出</button>
+                    </li>
                 </ul>
             </nav>
 
@@ -55,9 +58,13 @@
                     <div class = "container">
                         <button type = "button" class = "cancelbtn">取消</button>
                     </div>
+                    <div class = "register-link">
+                        <p>還沒有帳號？</p>
+                        <button type = "button" onclick = "showRegister()">註冊會員</button>
+                    </div>
                 </form>
             </div>
-            
+
             <!-- 註冊視窗 -->
             <div id = "registerModal" class = "modal">
                 <form id = "registerForm" class = "modal-content">
