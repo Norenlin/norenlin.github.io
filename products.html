@@ -61,36 +61,11 @@
         <!-- main 網頁主要內容 -->
         <main>
             <!-- section 不同主題分類 -->
-            <section class = "products">
-                <!-- 美式咖啡 -->
-                <div class = "view">
-                    <img src = "images/coffee1.jpg" alt = "美式咖啡">
-                    <div class = "mask">
-                        <p><em><strong>濃縮咖啡加入熱水，口感清爽順口<br>展現咖啡最純粹的香氣與回甘</strong></em></p>
-                    </div>
-                    <h3>美式咖啡</h3>
-                    <p class = "price">NT$80</p>
-                    <button class = "add-cart" onclick = "addToCart('美式咖啡', 80, 'images/coffee1.jpg')">加入購物車</button>
-                </div>
-                <!-- 拿鐵 -->
-                <div class = "view">
-                    <img src = "images/coffee2.jpg" alt = "拿鐵">
-                    <div class = "mask">
-                        <p><em><strong>濃縮咖啡融合綿密鮮奶，口感滑順柔和<br>帶出咖啡與奶香的完美平衡</strong></em></p>
-                    </div>
-                    <h3>拿鐵</h3>
-                    <p class = "price">NT$100</p>
-                    <button class = "add-cart" onclick = "addToCart('拿鐵', 100, 'images/coffee2.jpg')">加入購物車</button>
-                </div>
-                <!-- 義式咖啡 -->
-                <div class = "view">
-                    <img src = "images/coffee3.jpg" alt = "義式咖啡">
-                    <div class = "mask">
-                        <p><em><strong>高壓萃取濃縮咖啡，香氣濃郁、風味強烈<br>感受咖啡最經典的精華</strong></em></p>
-                    </div>
-                    <h3>義式咖啡</h3>
-                    <p class = "price">NT$90</p>
-                    <button class = "add-cart" onclick = "addToCart('義式咖啡', 90, 'images/coffee3.jpg')">加入購物車</button>
+            <section class = "products-section">
+                <h1>商品</h1>
+                <!-- JavaScript 會把商品放進這裡 -->
+                <div class="products" id="productList">
+                    <p id="loading">商品載入中...</p>
                 </div>
             </section>
         </main>

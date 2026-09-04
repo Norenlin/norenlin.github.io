@@ -1,4 +1,5 @@
-//
+//-------------------------------index圖片輪播-------------------------------------------------
+
 let slideIndex = 1;
 
 // 上一張/下一張
@@ -50,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 });
+
+// ---------------------------------------會員登入---------------------------------------------
 
 // 會員登入 Modal
 document.addEventListener("DOMContentLoaded", function() {
@@ -115,7 +118,8 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-// About-----------------------------------------------------------------------------------------------
+// -----------------------------------------------About 品牌故事---------------------------------------------------
+
 // 找出所有 class = "fade" 的元素
 const fadeElements = document.querySelectorAll(".fade");
 // 監控元素是否出現在畫面中
@@ -136,7 +140,8 @@ fadeElements.forEach((element) => {
   observer.observe(element);
 });
 
-// Cart------------------------------------------------------------------------------------------------
+// ----------------------------------------------Cart 購物車-----------------------------------------------
+
 // 從 localStorage 取得購物車資料
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -291,7 +296,143 @@ document.addEventListener("DOMContentLoaded", function() {
   renderCart();
 });
 
-// 漢堡選單
+// =====================================================
+// 商品 API
+// =====================================================
+
+async function loadProducts() {
+
+    const productList =
+        document.getElementById("productList");
+
+
+    // 如果現在不是商品頁面
+    // 就不用執行
+
+    if (!productList) {
+
+        return;
+
+    }
+
+
+    try {
+
+        // 向 Node.js 後端取得商品
+        const response =
+            await fetch("/api/products");
+
+
+        // 將結果轉成 JSON
+        const result =
+            await response.json();
+
+
+        console.log(
+            "後端商品資料：",
+            result
+        );
+
+
+        if (!result.success) {
+
+            throw new Error(
+                "取得商品失敗"
+            );
+
+        }
+
+
+        productList.innerHTML = "";
+
+
+        // 逐一建立商品
+        result.data.forEach(product => {
+
+
+            const productElement =
+                document.createElement("div");
+
+
+            productElement.className =
+                "product";
+
+
+            productElement.innerHTML = `
+
+                <div class="product-image">
+
+                    <img
+                        src="${product.image}"
+                        alt="${product.name}"
+                    >
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <h2>
+                        ${product.name}
+                    </h2>
+
+
+                    <p>
+                        ${product.description}
+                    </p>
+
+
+                    <p class="price">
+                        NT$${product.price}
+                    </p>
+
+
+                    <button
+                        onclick="addToCart(
+                            '${product.name}',
+                            ${product.price},
+                            '${product.image}'
+                        )"
+                    >
+                        加入購物車
+                    </button>
+
+                </div>
+
+            `;
+
+
+            productList.appendChild(
+                productElement
+            );
+
+        });
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "商品載入錯誤：",
+            error
+        );
+
+
+        productList.innerHTML = `
+
+            <p>
+                商品載入失敗，請確認後端伺服器是否啟動。
+            </p>
+
+        `;
+
+    }
+
+}
+
+// ------------------------------------------漢堡選單------------------------------------------------------
+
 function toggleMenu() {
     // 找到導覽列
     const navMenu = document.getElementById("Menu");
@@ -299,3 +440,61 @@ function toggleMenu() {
     // 加上或移除 active
     navMenu.classList.toggle("active");
 }
+
+// =====================================================
+// 網頁載入完成
+// =====================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+
+        // 購物車
+
+        updateCartCount();
+
+        renderCart();
+
+
+        // 商品
+
+        loadProducts();
+
+
+        // 輪播
+
+        const slides =
+            document.getElementsByClassName("mySlides");
+
+
+        if (slides.length > 0) {
+
+            showSlides(slideIndex);
+
+            startSlideshow();
+
+
+            const slideshow =
+                document.querySelector(".slideshow-container");
+
+
+            if (slideshow) {
+
+                slideshow.addEventListener(
+                    "mouseenter",
+                    stopSlideshow
+                );
+
+
+                slideshow.addEventListener(
+                    "mouseleave",
+                    startSlideshow
+                );
+
+            }
+
+        }
+
+    }
+);
