@@ -360,6 +360,37 @@ span.psw a {
     }
 }
 
+/* --會員註冊-------------------------------------------------------------------------------- */
+
+/* --註冊會員連結-- */
+.register-link {
+    text-align: center;
+    padding: 15px 20px 20px 20px;
+    background-color: #f1f1f1;
+}
+
+/* --註冊會員文字-- */
+.register-link p {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 15px;
+}
+
+/* --註冊會員按鈕-- */
+.register-link button {
+    background-color: transparent;
+    border: none;
+    color: #5b4636;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* --註冊會員按鈕 hover-- */
+.register-link button:hover {
+    color: #8b6a4e;
+}
+
 /* --Footer 網站版權聲明等附加資訊---------------------------------------------------------------- */
 footer{
     margin: 0;
