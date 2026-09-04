@@ -57,6 +57,32 @@
                     </div>
                 </form>
             </div>
+            <!-- 註冊視窗 -->
+            <div id = "registerModal" class = "modal">
+                <form id = "registerForm" class = "modal-content">
+                    <div class = "imgcontainer">
+                        <span class = "close register-close">&times;</span>
+                        <img src = "images/img_avatar2.png" alt = "Avatar" class = "avatar">
+                    </div>
+                    <div class = "container">
+                        <h2>會員註冊</h2>
+                        <label for = "registerUsername"><b>帳號</b></label>
+                        <input type = "text" id = "registerUsername" placeholder = "請輸入帳號" required>
+                        <label for = "registerPassword"><b>密碼</b></label>
+                        <input type = "password" id = "registerPassword" placeholder = "請輸入密碼（至少 6 個字元）" required>
+                        <label for = "registerPasswordAgain"><b>確認密碼</b></label>
+                        <input type = "password" id = "registerPasswordAgain" placeholder = "請再次輸入密碼" required>
+                        <button class = "login" type = "submit">註冊</button>
+                    </div>
+                    <div class = "container">
+                        <button type = "button" class = "cancelbtn register-cancel">取消</button>
+                    </div>
+                    <div class = "register-link">
+                        <p>已經有帳號？</p>
+                        <button type = "button" onclick = "showLogin()">回到登入</button>
+                    </div>
+                </form>
+            </div>
         </header>
         <!-- main 網頁主要內容 -->
         <main>
