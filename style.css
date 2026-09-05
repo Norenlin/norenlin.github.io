@@ -53,7 +53,7 @@ header a:hover{
     text-decoration: underline;
 }
 
-/* --text 文字第一行的縮排-- */
+/* --text-indent 文字第一行的縮排-- */
 h1{
     color:aliceblue;
     position: absolute;
@@ -159,12 +159,14 @@ h1{
     display: none;
     align-items:stretch;
 }
+
 /* --relative 保留自己原本的位置，但可以用 top / right / bottom / left 做偏移-- */
 .slideshow-container {
   width: 100%;
   position: relative;
   margin: auto;
 }
+
 /* --transition 平滑過渡效果，不會瞬間跳過去，而是花一段時間慢慢變化-- */
 /* --user-select: none 使用者能不能用滑鼠選取這個元素上的文字-- */
 .prev, .next {
@@ -191,6 +193,7 @@ h1{
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
+
 /* --transform:translateX(-50%) 沿著水平方向（X 軸）移動 50% 的自身寬度-- */
 .dots{
     position:absolute;
@@ -199,7 +202,9 @@ h1{
     transform:translateX(-50%);
     text-align:center;
 }
+
 /* --transition: background-color 0.6s ease 當背景顏色發生改變時，讓它用0.6秒，以平滑的速度慢慢變化-- */
+/* --inline-block 可以排在同一行 + 可以設定寬高，block 通常會自己佔滿一整行-- */
 .dot{
     cursor: pointer;
     height: 15px;
@@ -255,6 +260,7 @@ h1{
 }
 
 /* --登入視窗-------------------------------------------------------------------------------- */
+/* --fixed 元素固定在瀏覽器畫面上，不會隨著網頁捲動而移動-- */
 .modal {
     display: none;
     position: fixed;
@@ -267,7 +273,6 @@ h1{
     background-color: rgba(0, 0, 0, 0.4);
     padding-top: 60px;
 }
-
 
 /* --登入視窗本體-- */
 /* --margin: top right bottom left-- */
@@ -308,6 +313,7 @@ img.avatar {
     font-size: 35px;
     font-weight: bold;
 }
+
 /* --hover 滑鼠移到元素上時，focus 元素取得焦點時-- */
 .close:hover, .close:focus {
     color: red;
@@ -399,6 +405,7 @@ span.psw a {
 }
 
 /* --註冊會員按鈕-- */
+/* --transparent 透明的、看不見背景顏色-- */
 .register-link button {
     background-color: transparent;
     border: none;
@@ -502,7 +509,6 @@ footer{
 }
 
 /* --Product---------------------------------------------------------------------------------------- */
-/* --space-between 讓子元素平均分散，第一個靠最前面，最後一個靠最後面，中間的空間平均分配-- */
 .products-section {
     padding: 120px 8% 80px;
     min-height: 70vh;
@@ -513,10 +519,11 @@ footer{
     margin-bottom: 40px;
 }
 
+/* --grid 把元素的容器變成 Grid，讓裡面的元素可以用「行、列」來排列-- */
+/* --grid-template-columns: repeat(3, 1fr)，設定 Grid 有幾個欄位，以及每個欄位多寬，建立 3 個欄位，每個欄位佔 1 份空間-- */
 .products {
     display: grid;
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
@@ -526,11 +533,8 @@ footer{
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow:
-        0 4px 15px
-        rgba(0, 0, 0, 0.15);
-    transition:
-        transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s;
 }
 
 .product:hover {
@@ -546,11 +550,8 @@ footer{
 .product-image img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
-    transition:
-        transform 0.3s;
+    transition: transform 0.3s;
 }
 
 .product:hover .product-image img {
@@ -576,15 +577,10 @@ footer{
 
 .product-info button {
     width: 100%;
-
     padding: 12px;
-
     border: none;
-
     border-radius: 5px;
-
     cursor: pointer;
-
     font-size: 16px;
 }
 
@@ -751,7 +747,6 @@ footer{
     transition: 0.3s;
 }
 
-/* --(+/-)滑鼠移上去-- */
 .cart-controls button:hover {
     background: #c8a27a;
     color: white;
@@ -920,10 +915,8 @@ footer{
     .slogan {
         height: calc(100vh - 80px);
         min-height: 600px;
-
         padding: 0 20px;
         box-sizing: border-box;
-
         text-align: center;
     }
 
@@ -977,7 +970,6 @@ footer{
         font-size: 15px;
         line-height: 1.8;
     }
-
 
     /* --輪播按鈕-- */
     .prev, .next {
