@@ -1,8 +1,13 @@
+// require 把套件載入進來，並存到變數，promise -> 使用 Promise 版本
+// bcrypt 密碼雜湊
 const express = require("express");
 const mysql = require("mysql2/promise");
 const bcrypt = require("bcrypt");
+// 載入 dotenv，並讀取 .env 檔案
 require("dotenv").config();
 
+// 真正建立網站／API 伺服器物件
+// 如果環境變數 PORT 有設定，就使用它；沒有的話就使用 3000
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +20,12 @@ app.use(express.json());
 app.use(express.static("."));
 
 // MySQL 資料庫連線
+// createPool 建立MySQL Connection Pool，當 API 要查詢資料，不用每次 API 都重新建立一個資料庫連線
+// host -> MySQL 資料庫伺服器的位置，port -> 資料庫伺服器使用的網路埠號，SSL -> 資料庫連線的加密 / SSL
+// rejectUnauthorized 在 SSL 憑證驗證上，不要求一定要通過憑證授權機構的驗證
+// waitForConnections 如果目前沒有可用的資料庫連線，就先排隊等待(true)/就不等待，而是直接回報無法取得連線(false)
+// connectionLimit 這個連線池最多同時建立 n 條資料庫連線
+// queueLimit 等待中的請求最多可以排多少個，0 不限
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
@@ -28,8 +39,11 @@ const pool = mysql.createPool({
 });
 
 // 測試後端 + MySQL
+// 建立一個 GET API
 app.get("/api/test", async (req, res) => {
     try {
+        // 透過 pool 對 MySQL 執行 SELECT 1，使用資料庫連線池執行 SQL，SELECT 1 測試資料庫能不能正常執行 SQL
+        // pool.query() 是非同步操作，await 等資料庫查詢完成，再繼續往下執行
         await pool.query("SELECT 1");
         res.json({
             success: true, 
@@ -426,6 +440,7 @@ app.post("/api/login", async (req, res) => {
 });
 
 // 啟動伺服器
+// listen 讓 Express 開始監聽某一個 Port，啟動伺服器
 app.listen(PORT, () => {
     console.log("==============================");
     console.log("咖啡網站後端啟動成功！");
