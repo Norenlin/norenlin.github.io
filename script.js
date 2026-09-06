@@ -552,6 +552,7 @@ function changeQuantity(index,amount) {
 
 // 刪除購物車商品
 function removeFromCart(index) {
+    // splice(開始位置, 刪除幾個)
     cart.splice(index, 1);
     saveCart();
     renderCart();
