@@ -605,22 +605,22 @@ async function loadProducts() {
             const productElement = document.createElement("div");
             productElement.className = "product";
             productElement.innerHTML = `
-                <div class="product-image">
-                    <img src="${product.image}" alt="${product.name}">
+                <div class = "product-image">
+                    <img src = "${product.image}" alt = "${product.name}">
                 </div>
 
-                <div class="product-info">
+                <div class = "product-info">
                     <h2>${product.name}</h2>
                     <p>${product.description}</p>
-                    <p class="price">NT$${product.price}</p>
-                    <button onclick="addToCart('
-                        ${product.name}', 
+                    <p class = "price">NT$${product.price}</p>
+                    <button onclick = "addToCart(
+                        '${product.name}', 
                         ${product.price}, 
-                        '${product.image}
-                    ')">加入購物車</button>
+                        '${product.image}'
+                    )">加入購物車</button>
                 </div>
             `;
-                productList.appendChild(productElement);
+            productList.appendChild(productElement);
         });
     }
     catch (error) {
