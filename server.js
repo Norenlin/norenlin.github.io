@@ -220,13 +220,9 @@ app.put("/api/products/:id", async (req, res) => {
 
 
         res.json({
-
             success: true,
-
             message: "商品修改成功",
-
             data: rows[0]
-
         });
 
     } catch (error) {
@@ -253,7 +249,6 @@ app.delete("/api/products/:id", async (req, res) => {
     try {
 
         const id = Number(req.params.id);
-
 
         // 先確認商品存在
         const [rows] = await pool.query(
