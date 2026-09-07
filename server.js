@@ -193,7 +193,6 @@ app.put("/api/products/:id", async (req, res) => {
 
         }
 
-
         // 修改商品
         await pool.query(
             `UPDATE products
@@ -211,13 +210,11 @@ app.put("/api/products/:id", async (req, res) => {
             ]
         );
 
-
         // 取得修改後的資料
         const [rows] = await pool.query(
             "SELECT * FROM products WHERE id = ?",
             [id]
         );
-
 
         res.json({
             success: true,
