@@ -239,11 +239,8 @@ app.put("/api/products/:id", async (req, res) => {
 });
 
 
-// ----------------------------------------
 // 刪除商品
 // DELETE /api/products/:id
-// ----------------------------------------
-
 app.delete("/api/products/:id", async (req, res) => {
 
     try {
